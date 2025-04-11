@@ -216,3 +216,13 @@ Cask is a trademark of Cask Data, Inc. All rights reserved.
 
 Apache, Apache HBase, and HBase are trademarks of The Apache Software Foundation. Used with
 permission. No endorsement by The Apache Software Foundation is implied by the use of these marks.
+
+# Assignment Progress: 
+## 1. Grammar Enhancements for Additional Token Types
+Two new token types have been integrated into the grammar:
+
+- **`BYTE_SIZE`** – Recognizes values such as `10KB`, `5MB`, or `2GB`.
+
+- **`TIME_DURATION`** – Recognizes durations like `150ms`, `10s`, or `2h`.
+
+These token definitions have been introduced in the `Directives.g4` grammar file, including the necessary lexer fragments to support both byte and time units.
