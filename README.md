@@ -226,3 +226,23 @@ Two new token types have been integrated into the grammar:
 - **`TIME_DURATION`** – Recognizes durations like `150ms`, `10s`, or `2h`.
 
 These token definitions have been introduced in the `Directives.g4` grammar file, including the necessary lexer fragments to support both byte and time units.
+
+
+## 2. Wrangler API Enhancements - ByteSize & TimeDuration Tokens
+
+This update enhances the `wrangler-api` module by introducing support for parsing and handling byte sizes and time durations as first-class token types. These improvements enable more expressive and standardized directive arguments.
+
+### Summary of Changes
+
+  - Introduced `ByteSize.java` and `TimeDuration.java` classes, both extending the `Token` interface.
+  - `ByteSize` parses string representations like `"10KB"`, `"1MB"`, `"3GB"`, and converts them into bytes.
+  - `TimeDuration` parses strings like `"150ms"`, `"2s"`, `"5m"`, and converts them into milliseconds.
+  - Both classes provide methods to retrieve values in a canonical format (`getBytes()` and `getMillis()` respectively).
+
+  - Extended the `TokenType` enum to include two new types:
+  - `BYTE_SIZE`
+  - `TIME_DURATION`
+
+  - Updated directive usage and token definitions to support these new token types as valid directive arguments.
+
+These additions improve the flexibility and readability of directive definitions that involve memory size or time-based configuration inputs.
