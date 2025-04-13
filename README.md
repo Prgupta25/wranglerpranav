@@ -234,15 +234,30 @@ This update enhances the `wrangler-api` module by introducing support for parsin
 
 ### Summary of Changes
 
-  - Introduced `ByteSize.java` and `TimeDuration.java` classes, both extending the `Token` interface.
-  - `ByteSize` parses string representations like `"10KB"`, `"1MB"`, `"3GB"`, and converts them into bytes.
-  - `TimeDuration` parses strings like `"150ms"`, `"2s"`, `"5m"`, and converts them into milliseconds.
-  - Both classes provide methods to retrieve values in a canonical format (`getBytes()` and `getMillis()` respectively).
+  Introduced `ByteSize.java` and `TimeDuration.java` classes, both extending the `Token` interface.
+  `ByteSize` parses string representations like `"10KB"`, `"1MB"`, `"3GB"`, and converts them into bytes.
+  `TimeDuration` parses strings like `"150ms"`, `"2s"`, `"5m"`, and converts them into milliseconds.
+  Both classes provide methods to retrieve values in a canonical format (`getBytes()` and `getMillis()` respectively).
 
-  - Extended the `TokenType` enum to include two new types:
-  - `BYTE_SIZE`
-  - `TIME_DURATION`
+  Extended the `TokenType` enum to include two new types:
+  `BYTE_SIZE`
+  `TIME_DURATION`
 
-  - Updated directive usage and token definitions to support these new token types as valid directive arguments.
+  Updated directive usage and token definitions to support these new token types as valid directive arguments.
 
 These additions improve the flexibility and readability of directive definitions that involve memory size or time-based configuration inputs.
+
+
+## 3. AggregateStatsDirectiveTest
+
+This class contains unit tests for the AggregateStats directive, validating its behavior across various input types and scenarios, including:
+
+    Handling of null and empty input values
+
+    Support for numeric data types like `BigDecimal`, `Integer`, and `Double`
+
+    Correct calculation of average and sum
+
+    Graceful handling of type mismatches and unsupported types
+
+These tests ensure the reliability and accuracy of the AggregateStats directive in processing and aggregating statistical data.
